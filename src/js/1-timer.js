@@ -25,7 +25,9 @@ const options = {
       if (selectedDate < new Date()) {
         iziToast.show({
           title: 'Attention',
-          color: 'red',
+          titleColor: '#FAFAFB',
+          color: '#B51B1B',
+          messageColor: '#FAFAFB',
           message: 'Please choose a date in the future',
           close: true,
           position: 'topCenter',
@@ -84,10 +86,7 @@ function onStartBtnClick() {
 
   intervalId = setInterval(() => {
     const timerTimeObj = convertMs(remainingTime);
-    daysEl.textContent = timerTimeObj.days;
-    if (timerTimeObj.days === 0) {
-      daysEl.textContent = '00';
-    }
+    daysEl.textContent = addLeadingZero(timerTimeObj.days);
     hoursEl.textContent = addLeadingZero(timerTimeObj.hours);
     minutesEl.textContent = addLeadingZero(timerTimeObj.minutes);
     secondsEl.textContent = addLeadingZero(timerTimeObj.seconds);
